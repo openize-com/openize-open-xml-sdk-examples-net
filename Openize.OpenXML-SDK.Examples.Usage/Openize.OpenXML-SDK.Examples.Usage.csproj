@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<RootNamespace>Openize.OpenXML_SDK.Examples.Usage</RootNamespace>
+		<LangVersion>8.0</LangVersion>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Openize.OpenXML-SDK.Examples\Openize.OpenXML-SDK.Examples.csproj" />
+	</ItemGroup>
+
+</Project>
