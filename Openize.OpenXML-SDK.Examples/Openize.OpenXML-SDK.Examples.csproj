@@ -1,0 +1,20 @@
+
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<RootNamespace>Openize.OpenXML_SDK.Examples</RootNamespace>
+		<LangVersion>8.0</LangVersion>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Folder Include="PowerPoint\" />
+		<Folder Include="Word\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Openize.OpenXML-SDK" Version="25.4.1" />
+	</ItemGroup>
+
+</Project>
