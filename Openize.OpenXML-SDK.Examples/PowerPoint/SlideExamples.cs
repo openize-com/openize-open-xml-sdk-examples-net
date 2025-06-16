@@ -146,9 +146,9 @@ namespace Openize.Slides.Examples
 
             try
             {
+                /**
                 // Create instance of presentation
                 Presentation presentation = Presentation.Open($"{documentDirectory}/{filename}");
-
                 presentation.SlideHeight = 400;
                 presentation.SlideWidth = 700;
                 //Create instances of text shapes and set their texts.
@@ -168,7 +168,7 @@ namespace Openize.Slides.Examples
                 presentation.AppendSlide(slide);
                 // Save presentation
                 presentation.Save();
-
+                **/
             }
             catch (System.Exception ex)
             {

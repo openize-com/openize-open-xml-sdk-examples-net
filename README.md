@@ -39,7 +39,15 @@ git clone https://github.com/openize-com/openize-open-xml-sdk-examples-net.git
 - **CellExamples**: Manipulating cells with different data types, formulas, and hyperlinks
 
 ### Word
-Coming soon...
+- **ParagraphExamples**: Creating, reading and modifying word paragraphs
+- **ParagraphAlignmentExamples**: Creating, reading and modifying alignment of word paragraphs
+- **ParagraphIndentExamples**: Creating, reading and modifying indentation of word paragraphs
+- **ParagraphNumberExamples**: Creating, reading and modifying numbered word paragraphs
+- **ParagraphRomanAlphabeticExamples**: Creating, reading and modifying word paragraphs with roman and alphabetic numbering
+- **ParagraphFrameExamples**: Creating, reading and modifying word paragraphs with frames
+- **ListExamples**: Creating, reading and modifying multilevel lists
+- **TableExamples**: Creating, reading and modifying word tables
+- **ImageExamples**: Creating, reading and modifying word images
 
 ### PowerPoint
 Coming soon...
