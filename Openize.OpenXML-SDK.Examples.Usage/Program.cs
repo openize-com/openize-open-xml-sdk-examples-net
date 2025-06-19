@@ -113,6 +113,14 @@ namespace Openize.OpenXML_SDK.Examples.Usage
                         RunWordShapeExamples();
                         break;
 
+                    case "24":
+                        RunWordGroupShapeConnectorExamples();
+                        break;
+
+                    case "25":
+                        RunWordMetadataExamples();
+                        break;
+
                     case "0":
                         exit = true;
                         break;
@@ -160,6 +168,8 @@ namespace Openize.OpenXML_SDK.Examples.Usage
             Console.WriteLine("21. Word Table Examples");
             Console.WriteLine("22. Word Image Examples");
             Console.WriteLine("23. Word Shape Examples");
+            Console.WriteLine("24. Word Group Shape Connector Examples");
+            Console.WriteLine("25. Word Metadata Examples");
             Console.WriteLine("0. Exit");
             Console.Write("\nEnter your choice: ");
         }
@@ -662,5 +672,47 @@ namespace Openize.OpenXML_SDK.Examples.Usage
             Console.WriteLine("=============================");
         }
 
+        static void RunWordGroupShapeConnectorExamples()
+        {
+            Console.Clear();
+            Console.WriteLine("Word Group Shape Connector Examples");
+            Console.WriteLine("===============");
+
+            var example = new Openize.Words.Examples.GroupShapeConnectorExamples();
+
+            Console.WriteLine("\n1. CreateGroupShapes...");
+            Console.WriteLine("=============================");
+            example.CreateGroupShapes();
+            Console.WriteLine("=============================");
+
+            Console.WriteLine("\n2. ReadGroupShapes...");
+            Console.WriteLine("=============================");
+            example.ReadGroupShapes();
+            Console.WriteLine("=============================");
+        }
+
+        static void RunWordMetadataExamples()
+        {
+            Console.Clear();
+            Console.WriteLine("Word Metadata Examples");
+            Console.WriteLine("===============");
+
+            var example = new Openize.Words.Examples.MetadataExamples();
+
+            Console.WriteLine("\n1. CreateMetadata...");
+            Console.WriteLine("=============================");
+            example.CreateMetadata();
+            Console.WriteLine("=============================");
+
+            Console.WriteLine("\n2. ReadMetadata...");
+            Console.WriteLine("=============================");
+            example.ReadMetadata();
+            Console.WriteLine("=============================");
+
+            Console.WriteLine("\n3. ModifyMetadata...");
+            Console.WriteLine("=============================");
+            example.ModifyMetadata();
+            Console.WriteLine("=============================");
+        }
     }
 }
