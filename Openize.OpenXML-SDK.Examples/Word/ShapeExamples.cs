@@ -6,7 +6,7 @@
     /// </summary>
     /// <example>
     /// <code>
-    /// // Prepares directory Documents/Shape at the root of your project.
+    /// // Prepares directory Documents/Word/Shape at the root of your project.
     /// // Check reference for more options and details.
     /// var shapeExamples = new Openize.Words.Examples.ShapeExamples();
     /// // Creates a word document with shapes and saves word document to the specified 

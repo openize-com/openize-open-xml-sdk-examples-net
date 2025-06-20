@@ -121,6 +121,10 @@ namespace Openize.OpenXML_SDK.Examples.Usage
                         RunWordMetadataExamples();
                         break;
 
+                    case "26":
+                        RunWordShapeFillExamples();
+                        break;
+
                     case "0":
                         exit = true;
                         break;
@@ -170,6 +174,7 @@ namespace Openize.OpenXML_SDK.Examples.Usage
             Console.WriteLine("23. Word Shape Examples");
             Console.WriteLine("24. Word Group Shape Connector Examples");
             Console.WriteLine("25. Word Metadata Examples");
+            Console.WriteLine("26. Word Shapes Fill Options Examples");
             Console.WriteLine("0. Exit");
             Console.Write("\nEnter your choice: ");
         }
@@ -712,6 +717,25 @@ namespace Openize.OpenXML_SDK.Examples.Usage
             Console.WriteLine("\n3. ModifyMetadata...");
             Console.WriteLine("=============================");
             example.ModifyMetadata();
+            Console.WriteLine("=============================");
+        }
+
+        static void RunWordShapeFillExamples()
+        {
+            Console.Clear();
+            Console.WriteLine("Word Metadata Examples");
+            Console.WriteLine("===============");
+
+            var example = new Openize.Words.Examples.ShapeFillExamples();
+
+            Console.WriteLine("\n1. CreateFillShapes...");
+            Console.WriteLine("=============================");
+            example.CreateFillShapes();
+            Console.WriteLine("=============================");
+
+            Console.WriteLine("\n2. CreateFillGroupShapes...");
+            Console.WriteLine("=============================");
+            example.CreateFillGroupShapes();
             Console.WriteLine("=============================");
         }
     }
