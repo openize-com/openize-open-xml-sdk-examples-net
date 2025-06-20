@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
@@ -7,6 +7,10 @@
 		<LangVersion>8.0</LangVersion>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Openize.OpenXML-SDK" Version="25.6.1.1" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\Openize.OpenXML-SDK.Examples\Openize.OpenXML-SDK.Examples.csproj" />
