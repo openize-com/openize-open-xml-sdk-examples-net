@@ -15,11 +15,12 @@
 
 	<ItemGroup>
 	  <PackageReference Include="SkiaSharp" Version="3.119.0" />
-	  <PackageReference Include="Openize.OpenXML-SDK" Version="25.6.0" />
+	  <PackageReference Include="Openize.OpenXML-SDK" Version="25.6.1.1" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <None Remove="SkiaSharp" />
 	  <None Remove="Openize.OpenXML-SDK" />
+	  <None Remove="DocumentFormat.OpenXml" />
 	</ItemGroup>
 </Project>

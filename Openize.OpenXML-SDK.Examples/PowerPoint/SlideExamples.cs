@@ -146,7 +146,7 @@ namespace Openize.Slides.Examples
 
             try
             {
-                /**
+                
                 // Create instance of presentation
                 Presentation presentation = Presentation.Open($"{documentDirectory}/{filename}");
                 presentation.SlideHeight = 400;
@@ -168,7 +168,7 @@ namespace Openize.Slides.Examples
                 presentation.AppendSlide(slide);
                 // Save presentation
                 presentation.Save();
-                **/
+                
             }
             catch (System.Exception ex)
             {
