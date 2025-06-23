@@ -58,6 +58,18 @@ namespace Openize.OpenXML_SDK.Examples.Usage
                         RunWordShapeExamples();
                         break;
 
+                    case "11":
+                        RunWordGroupShapeConnectorExamples();
+                        break;
+
+                    case "12":
+                        RunWordMetadataExamples();
+                        break;
+
+                    case "13":
+                        RunWordShapeFillExamples();
+                        break;
+
                     case "0":
                         back = true;
                         break;
@@ -90,6 +102,9 @@ namespace Openize.OpenXML_SDK.Examples.Usage
             Console.WriteLine("8. Word Table Examples");
             Console.WriteLine("9. Word Image Examples");
             Console.WriteLine("10. Word Shape Examples");
+            Console.WriteLine("11. Word Group Shape Connector Examples");
+            Console.WriteLine("12. Word Metadata Examples");
+            Console.WriteLine("13. Word Shapes Fill Options Examples");
             Console.WriteLine("0. Back to Main Menu");
             Console.Write("\nEnter your choice: ");
         }
@@ -333,6 +348,68 @@ namespace Openize.OpenXML_SDK.Examples.Usage
             Console.WriteLine("\n3. ModifyShapes...");
             Console.WriteLine("=============================");
             example.ModifyShapes();
+            Console.WriteLine("=============================");
+        }
+
+        static void RunWordGroupShapeConnectorExamples()
+        {
+            Console.Clear();
+            Console.WriteLine("Word Group Shape Connector Examples");
+            Console.WriteLine("===============");
+
+            var example = new Openize.Words.Examples.GroupShapeConnectorExamples();
+
+            Console.WriteLine("\n1. CreateGroupShapes...");
+            Console.WriteLine("=============================");
+            example.CreateGroupShapes();
+            Console.WriteLine("=============================");
+
+            Console.WriteLine("\n2. ReadGroupShapes...");
+            Console.WriteLine("=============================");
+            example.ReadGroupShapes();
+            Console.WriteLine("=============================");
+        }
+
+        static void RunWordMetadataExamples()
+        {
+            Console.Clear();
+            Console.WriteLine("Word Metadata Examples");
+            Console.WriteLine("===============");
+
+            var example = new Openize.Words.Examples.MetadataExamples();
+
+            Console.WriteLine("\n1. CreateMetadata...");
+            Console.WriteLine("=============================");
+            example.CreateMetadata();
+            Console.WriteLine("=============================");
+
+            Console.WriteLine("\n2. ReadMetadata...");
+            Console.WriteLine("=============================");
+            example.ReadMetadata();
+            Console.WriteLine("=============================");
+
+            Console.WriteLine("\n3. ModifyMetadata...");
+            Console.WriteLine("=============================");
+            example.ModifyMetadata();
+            Console.WriteLine("=============================");
+        }
+
+        static void RunWordShapeFillExamples()
+        {
+            Console.Clear();
+            Console.WriteLine("Word Metadata Examples");
+            Console.WriteLine("===============");
+
+            var example = new Openize.Words.Examples.ShapeFillExamples();
+
+            Console.WriteLine("\n1. CreateFillShapes...");
+            Console.WriteLine("=============================");
+            example.CreateFillShapes();
+            Console.WriteLine("=============================");
+
+            Console.WriteLine("\n2. CreateFillGroupShapes...");
+            Console.WriteLine("=============================");
+            example.CreateFillGroupShapes();
             Console.WriteLine("=============================");
         }
     }

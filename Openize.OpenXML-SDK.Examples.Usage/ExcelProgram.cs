@@ -18,21 +18,52 @@ namespace Openize.OpenXML_SDK.Examples.Usage
                 switch (choice)
                 {
                     case "1":
-                        RunWorkbookExamples();
+                        RunCellValueExamples();
                         break;
 
                     case "2":
-                        RunWorksheetExamples();
+                        RunCellMergeExamples();
                         break;
 
                     case "3":
-                        RunCellExamples();
+                        RunRowColumnExamples();
                         break;
 
                     case "4":
-                        RunWorksheetPropertiesExamples();
+                        RunFreezePanesExamples();
                         break;
 
+                    case "5":
+                        RunRangeExamples();
+                        break;
+
+                    case "6":
+                        RunDocumentPropertiesExamples();
+                        break;
+
+                    case "7":
+                        RunColumnInsertionExamples();
+                        break;
+
+                    case "8":
+                        RunRowInsertionExamples();
+                        break;
+
+                    case "9":
+                        RunAddWorksheetExamples();
+                        break;
+
+                    case "10":
+                        RunFormulaExamples();
+                        break;
+
+                    case "11":
+                        RunHiddenSheetsExamples();
+                        break;
+
+                    case "12":
+                        RunCellStylingExamples();
+                        break;
 
                     case "0":
                         back = true;
@@ -56,88 +87,179 @@ namespace Openize.OpenXML_SDK.Examples.Usage
             Console.WriteLine("Excel Examples");
             Console.WriteLine("==============");
             Console.WriteLine("Choose an example to run:");
-            Console.WriteLine("1. Workbook Examples");
-            Console.WriteLine("2. Worksheet Examples");
-            Console.WriteLine("3. Cell Examples");
-            Console.WriteLine("4. Worksheet Properties Examples");
-            Console.WriteLine("5. Data Import/Export Examples");
+            Console.WriteLine("1. Cell Value Examples");
+            Console.WriteLine("2. Cell Merge Examples");
+            Console.WriteLine("3. Row Column Examples");
+            Console.WriteLine("4. Freeze Panes Examples");
+            Console.WriteLine("5. Range Examples");
+            Console.WriteLine("6. Document Properties Examples");
+            Console.WriteLine("7. Column Insertion Examples");
+            Console.WriteLine("8. Row Insertion Examples");
+            Console.WriteLine("9. Add Worksheet Examples");
+            Console.WriteLine("10. Formula Examples");
+            Console.WriteLine("11. Hidden Sheets Examples");
+            Console.WriteLine("12. Cell Styling Examples");
             Console.WriteLine("0. Back to Main Menu");
             Console.Write("\nEnter your choice: ");
         }
 
-        private static void RunWorkbookExamples()
+        private static void RunCellValueExamples()
         {
             Console.Clear();
-            Console.WriteLine("Workbook Examples");
-            Console.WriteLine("================");
+            Console.WriteLine("Cell Value Examples");
+            Console.WriteLine("==================");
 
-            var workbookExamples = new WorkbookExamples();
+            var cellValueExamples = new CellValueExamples();
 
-            Console.WriteLine("\n1. Creating an empty workbook...");
-            workbookExamples.CreateEmptyWorkbook();
+            Console.WriteLine("\n1. Creating cells with basic values...");
+            cellValueExamples.CreateCellValues();
 
-            Console.WriteLine("\n2. Creating a workbook with multiple sheets...");
-            workbookExamples.CreateWorkbookWithMultipleSheets();
+            Console.WriteLine("\n2. Reading cell values from workbook...");
+            cellValueExamples.ReadCellValues();
 
-            Console.WriteLine("\n3. Creating a workbook with properties...");
-            workbookExamples.CreateWorkbookWithProperties();
-
-            Console.WriteLine("\n4. Opening an existing workbook...");
-            workbookExamples.OpenExistingWorkbook();
+            Console.WriteLine("\n3. Updating cell values in workbook...");
+            cellValueExamples.UpdateCellValues();
         }
 
-        private static void RunWorksheetExamples()
+        private static void RunCellMergeExamples()
         {
             Console.Clear();
-            Console.WriteLine("Worksheet Examples");
-            Console.WriteLine("=================");
+            Console.WriteLine("Cell Merge Examples");
+            Console.WriteLine("==================");
 
-            var worksheetExamples = new WorksheetExamples();
+            var cellMergeExamples = new CellMergeExamples();
 
-            Console.WriteLine("\n1. Creating a renamed worksheet...");
-            worksheetExamples.CreateRenamedWorksheet();
+            Console.WriteLine("\n1. Creating merged cells...");
+            cellMergeExamples.CreateMergedCells();
 
-            Console.WriteLine("\n2. Creating a protected worksheet...");
-            worksheetExamples.CreateProtectedWorksheet();
+            Console.WriteLine("\n2. Reading merged cells...");
+            cellMergeExamples.ReadMergedCells();
 
-            Console.WriteLine("\n3. Modifying column width and row height...");
-            worksheetExamples.ModifyColumnWidthAndRowHeight();
-
-            Console.WriteLine("\n4. Working with hidden columns and rows...");
-            worksheetExamples.HideColumnsAndRows();
-
-            Console.WriteLine("\n5. Working with merged cells...");
-            worksheetExamples.MergeCells();
+            Console.WriteLine("\n3. Updating merged cells...");
+            cellMergeExamples.UpdateMergedCells();
         }
 
-        private static void RunCellExamples()
+        private static void RunRowColumnExamples()
         {
             Console.Clear();
-            Console.WriteLine("Cell Examples");
+            Console.WriteLine("Row Column Examples");
+            Console.WriteLine("==================");
+
+            var rowColumnExamples = new RowColumnExamples();
+
+            Console.WriteLine("\n1. Creating row and column sizing...");
+            rowColumnExamples.CreateRowColumnSizing();
+        }
+
+        private static void RunFreezePanesExamples()
+        {
+            Console.Clear();
+            Console.WriteLine("Freeze Panes Examples");
+            Console.WriteLine("====================");
+
+            var freezePanesExamples = new FreezePanesExamples();
+
+            Console.WriteLine("\n1. Creating freeze panes...");
+            freezePanesExamples.CreateFreezePanes();
+        }
+
+        private static void RunRangeExamples()
+        {
+            Console.Clear();
+            Console.WriteLine("Range Examples");
             Console.WriteLine("=============");
 
-            var cellExamples = new CellExamples();
+            var rangeExamples = new RangeExamples();
 
-            Console.WriteLine("\n1. Creating cells with different data types...");
-            cellExamples.CreateCellsWithDifferentDataTypes();
-
-            Console.WriteLine("\n2. Creating cells with formulas...");
-            cellExamples.CreateCellsWithFormulas();
-
-            Console.WriteLine("\n3. Creating cells with hyperlinks...");
-            cellExamples.CreateCellsWithHyperlinks();
+            Console.WriteLine("\n1. Creating range example...");
+            rangeExamples.CreateRangeExample();
         }
 
-        private static void RunWorksheetPropertiesExamples()
+        private static void RunDocumentPropertiesExamples()
         {
             Console.Clear();
-            Console.WriteLine("Worksheet Properties Examples");
-            Console.WriteLine("============================");
+            Console.WriteLine("Document Properties Examples");
+            Console.WriteLine("===========================");
 
-            var worksheetPropertiesExamples = new WorksheetPropertiesExamples();
+            var documentPropertiesExamples = new DocumentPropertiesExamples();
 
-            Console.WriteLine("\n1. Demonstrating worksheet properties...");
-            worksheetPropertiesExamples.DemonstrateWorksheetProperties();
+            Console.WriteLine("\n1. Creating document properties...");
+            documentPropertiesExamples.CreateDocumentProperties();
+        }
+
+        private static void RunColumnInsertionExamples()
+        {
+            Console.Clear();
+            Console.WriteLine("Column Insertion Examples");
+            Console.WriteLine("=========================");
+
+            var columnInsertionExamples = new ColumnInsertionExamples();
+
+            Console.WriteLine("\n1. Creating column insertion...");
+            columnInsertionExamples.CreateColumnInsertion();
+        }
+
+        private static void RunRowInsertionExamples()
+        {
+            Console.Clear();
+            Console.WriteLine("Row Insertion Examples");
+            Console.WriteLine("======================");
+
+            var rowInsertionExamples = new RowInsertionExamples();
+
+            Console.WriteLine("\n1. Creating row insertion...");
+            rowInsertionExamples.CreateRowInsertion();
+        }
+
+        private static void RunAddWorksheetExamples()
+        {
+            Console.Clear();
+            Console.WriteLine("Add Worksheet Examples");
+            Console.WriteLine("======================");
+
+            var addWorksheetExamples = new AddWorksheetExamples();
+
+            Console.WriteLine("\n1. Creating add worksheet...");
+            addWorksheetExamples.CreateAddWorksheet();
+        }
+
+        private static void RunFormulaExamples()
+        {
+            Console.Clear();
+            Console.WriteLine("Formula Examples");
+            Console.WriteLine("================");
+
+            var formulaExamples = new FormulaExamples();
+
+            Console.WriteLine("\n1. Creating formula example...");
+            formulaExamples.CreateFormulaExample();
+        }
+
+        private static void RunHiddenSheetsExamples()
+        {
+            Console.Clear();
+            Console.WriteLine("Hidden Sheets Examples");
+            Console.WriteLine("======================");
+
+            var hiddenSheetsExamples = new HiddenSheetsExamples();
+
+            Console.WriteLine("\n1. Creating hidden sheets...");
+            hiddenSheetsExamples.CreateHiddenSheets();
+
+            Console.WriteLine("\n2. Getting hidden sheets information...");
+            hiddenSheetsExamples.GetHiddenSheets();
+        }
+
+        private static void RunCellStylingExamples()
+        {
+            Console.Clear();
+            Console.WriteLine("Cell Styling Examples");
+            Console.WriteLine("====================");
+
+            var cellStylingExamples = new CellStylingExamples();
+
+            Console.WriteLine("\n1. Creating cell styling...");
+            cellStylingExamples.CreateCellStyling();
         }
     }
 }

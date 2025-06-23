@@ -6,7 +6,7 @@
     /// </summary>
     /// <example>
     /// <code>
-    /// // Prepares directory Documents/Word/Shape at the root of your project.
+    /// // Prepares directory Documents/Word/Metadata at the root of your project.
     /// // Check reference for more options and details.
     /// var shapeExamples = new Openize.Words.Examples.ShapeExamples();
     /// // Creates a word document with shapes and saves word document to the specified 
@@ -20,17 +20,17 @@
     /// shapeExamples.ModifyShapes();
     /// </code>
     /// </example>
-    public class ShapeExamples
+    public class MetadataExamples
     {
-        private const string docsDirectory = "../../../Documents/Word/Shape";
+        private const string docsDirectory = "../../../Documents/Word/Metadata";
         /// <summary>
-        /// Initializes a new instance of the <see cref="ShapeExamples"/> class.
-        /// Prepares the directory 'Documents/Word/Shape' for storing or loading Word documents
+        /// Initializes a new instance of the <see cref="MetadataExamples"/> class.
+        /// Prepares the directory 'Documents/Word/Metadata' for storing or loading Word documents
         /// at the root of the project.
         /// If the directory doesn't exist, it is created. If it already exists,
         /// existing files are deleted, and the directory is cleaned up.
         /// </summary>
-        public ShapeExamples()
+        public MetadataExamples()
         {
             if (!System.IO.Directory.Exists(docsDirectory))
             {
@@ -54,18 +54,19 @@
         /// <summary>
         /// Creates a new Word Document with structured content using 
         /// <a href="https://www.nuget.org/packages/Openize.OpenXML-SDK">Openize.OpenXML-SDK</a>.
-        /// Generates different shapes including Hexagone, Diamond and Ellipse.
-        /// Appends each shape to the body of the word document.
+        /// Generates several metadata values including title, subject, description and so on.
+        /// Sets metadata of the word document.
         /// Saves the newly created word document.
         /// </summary>
         /// <param name="documentDirectory">
-        /// The directory where the Word Document will be saved (default is the 'Documents/Table' directory auto-created at the root of your project).
+        /// The directory where the Word Document will be saved (default is the
+        /// 'Documents/Word/Metadata' directory auto-created at the root of your project).
         /// </param>
         /// <param name="filename">
-        /// The name of the Word Document file (default is "WordShapes.docx").
+        /// The name of the Word Document file (default is "WordMetadata.docx").
         /// </param>
-        public void CreateShapes(string documentDirectory = docsDirectory,
-            string filename = "WordShapes.docx")
+        public void CreateMetadata(string documentDirectory = docsDirectory,
+            string filename = "WordMetadata.docx")
         {
             try
             {
@@ -77,26 +78,23 @@
                 var body = new Openize.Words.Body(doc);
                 System.Console.WriteLine("Body of the Word Document initialized");
 
-                // Instantiate shape element with hexagone and coordinates/size.
-                var shape = new Openize.Words.IElements.Shape(100, 100, 400, 400,
-                Openize.Words.IElements.ShapeType.Hexagone);
-                // Add hexagone shape to the word document.
-                body.AppendChild(shape);
-                System.Console.WriteLine("Hexagone shape added");
+                // Instantiate document metadata
+                var docMetadata = new Openize.Words.DocumentProperties();
 
-                // Reinstantiate shape element with diamond and coordinates/size.
-                shape = new Openize.Words.IElements.Shape(100, 100, 400, 400,
-                Openize.Words.IElements.ShapeType.Diamond);
-                // Add daimond shape to the word document.
-                body.AppendChild(shape);
-                System.Console.WriteLine("Diamond shape added");
+                // Define metadata attributes
+                docMetadata.Title = "My Title";
+                docMetadata.Subject = "My Subject";
+                docMetadata.Description = "My Description";
+                docMetadata.Keywords = "Openize.OpenXML-SDK";
+                docMetadata.Creator = "Openize.OpenXML-SDK for .NET";
+                docMetadata.LastModifiedBy = "Openize.OpenXML-SDK for .NET";
+                docMetadata.Revision = "1";
+                var currentTime = System.DateTime.UtcNow;
+                docMetadata.Created = currentTime.ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ");
+                docMetadata.Modified = currentTime.ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ");
 
-                // Reinstantiate shape element with ellipse and coordinates/size.
-                shape = new Openize.Words.IElements.Shape(100, 100, 400, 400,
-                Openize.Words.IElements.ShapeType.Ellipse);
-                // Add ellipse shape to the word document.
-                body.AppendChild(shape);
-                System.Console.WriteLine("Ellipse shape added");
+                // Set Metadata
+                doc.SetDocumentProperties(docMetadata);
 
                 // Save the newly created Word Document.
                 doc.Save($"{documentDirectory}/{filename}");
@@ -111,18 +109,18 @@
         /// <summary>
         /// Loads a Word Document with structured content using 
         /// <a href="https://www.nuget.org/packages/Openize.OpenXML-SDK">Openize.OpenXML-SDK</a>.
-        /// Traverses through shapes of the Word document.
-        /// Reads and displays properties of the shape.
+        /// Geta metadata properties of the Word document.
+        /// Reads and displays metadata values of the document.
         /// </summary>
         /// <param name="documentDirectory">
         /// The directory where the Word Document to load is present
-        /// (default is the 'Documents/Word/Shape' directory auto-created at the root of your project).
+        /// (default is the 'Documents/Word/Metadata' directory auto-created at the root of your project).
         /// </param>
         /// <param name="filename">
-        /// The name of the Word Document file to load (default is "WordShapes.docx").
+        /// The name of the Word Document file to load (default is "WordMetadata.docx").
         /// </param>
-        public void ReadShapes(string documentDirectory = docsDirectory,
-            string filename = "WordShapes.docx")
+        public void ReadMetadata(string documentDirectory = docsDirectory,
+            string filename = "WordMetadata.docx")
         {
             try
             {
@@ -131,23 +129,19 @@
                 // Initialize the body with the loaded document.
                 var body = new Openize.Words.Body(doc);
 
-                // Load all shapes with the document
-                var shapes = body.Shapes;
+                // Get document metadata
+                var coreprops = doc.GetDocumentProperties();
 
-                // Initialize the shape counter
-                var shapeNumber = 0;
-
-                // Traverse through each shape and display its properties
-                foreach (var shape in shapes)
-                {
-                    shapeNumber++;
-                    System.Console.WriteLine($"Shape Number : {shapeNumber}");
-                    System.Console.WriteLine($"...Shape Type : {shape.Type}");
-                    System.Console.WriteLine($"...X Position : {shape.X}");
-                    System.Console.WriteLine($"...Y Position : {shape.Y}");
-                    System.Console.WriteLine($"...Width      : {shape.Width}");
-                    System.Console.WriteLine($"...Height     : {shape.Height}");
-                }
+                // Display document metadata
+                System.Console.WriteLine("Creator: " + coreprops.Creator);
+                System.Console.WriteLine("Keywords: " + coreprops.Keywords);
+                System.Console.WriteLine("Title: " + coreprops.Title);
+                System.Console.WriteLine("Subject: " + coreprops.Subject);
+                System.Console.WriteLine("Description: " + coreprops.Description);
+                System.Console.WriteLine("LastModifiedBy: " + coreprops.LastModifiedBy);
+                System.Console.WriteLine("Revision: " + coreprops.Revision);
+                System.Console.WriteLine("Created: " + coreprops.Created);
+                System.Console.WriteLine("Modified: " + coreprops.Modified);
             }
             catch (System.Exception ex)
             {
@@ -157,13 +151,16 @@
         /// <summary>
         /// Loads a Word Document with structured content using 
         /// <a href="https://www.nuget.org/packages/Openize.OpenXML-SDK">Openize.OpenXML-SDK</a>.
-        /// Traverses through shapes of the Word document.
-        /// Modifies shapes by setting their type to Diamond.
+        /// Gets the metadata properties of the Word document.
+        /// Updates metadata values
+        /// Sets the new metadata values.
+        /// Displays old and new values.
         /// Saves the modified Word Document.
         /// </summary>
         /// <param name="documentDirectory">
         /// The directory where the Word Document to load is present and
-        /// the modified document will be saved (default is the 'Documents/Word/Shape' directory auto-created at the root of your project).
+        /// the modified document will be saved (default is the
+        /// 'Documents/Word/Metadata' directory auto-created at the root of your project).
         /// </param>
         /// <param name="filename">
         /// The name of the Word Document file to modify (default is "WordShapes.docx").
@@ -171,8 +168,8 @@
         /// <param name="filenameModified">
         /// The name of the modified Word Document (default is "ModifiedWordShapes.docx").
         /// </param>
-        public void ModifyShapes(string documentDirectory = docsDirectory,
-            string filename = "WordShapes.docx", string filenameModified = "ModifiedWordShapes.docx")
+        public void ModifyMetadata(string documentDirectory = docsDirectory,
+            string filename = "WordMetadata.docx", string filenameModified = "ModifiedWordMetadata.docx")
         {
             try
             {
@@ -181,16 +178,43 @@
                 // Initialize the body with the loaded document. 
                 var body = new Openize.Words.Body(doc);
 
-                // Load all shapes
-                var shapes = body.Shapes;
+                // Get current metadata
+                var oldProps = doc.GetDocumentProperties();
+                var props = new Openize.Words.DocumentProperties();
 
-                // Traverse through each shape, change the shape type to diamond and update document.
-                foreach (var shape in shapes)
+                // Helper to print and update
+                void UpdateProperty<T>(string name, T oldValue, T newValue, System.Action<T> setValue)
                 {
-                    shape.Type = Openize.Words.IElements.ShapeType.Diamond;
-                    doc.Update(shape);
+                    System.Console.WriteLine($"Old {name} : {oldValue}");
+                    setValue(newValue);
+                    System.Console.WriteLine($"New {name} : {newValue}");
                 }
 
+                // Update metadata
+                UpdateProperty("Title", oldProps.Title,
+                    "Updated Title", val => props.Title = val);
+                UpdateProperty("Subject", oldProps.Subject,
+                    "Updated Subject", val => props.Subject = val);
+                UpdateProperty("Description", oldProps.Description,
+                    "Updated Description", val => props.Description = val);
+                UpdateProperty("Creator", oldProps.Creator,
+                    "Updated Creator", val => props.Creator = val);
+                UpdateProperty("Keywords", oldProps.Keywords,
+                    "Updated.Keyword", val => props.Keywords = val);
+                UpdateProperty("LastModifiedBy", oldProps.LastModifiedBy,
+                    "Updated.Openize.OpenXML-SDK", val => props.LastModifiedBy = val);
+                UpdateProperty("Revision", oldProps.Revision,
+                    "Version.Revised", val => props.Revision = val);
+                UpdateProperty("Created", oldProps.Created,
+                    oldProps.Created, val => props.Created = val);
+
+                var currentTime = System.DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ");
+                UpdateProperty("Modified", oldProps.Modified,
+                    currentTime, val => props.Modified = val);
+
+                // Set updated metadata
+                doc.SetDocumentProperties(props);
+                
                 // Save the modified Word Document
                 doc.Save($"{documentDirectory}/{filenameModified}");
                 System.Console.WriteLine($"Word Document {filename} Modified and " +
