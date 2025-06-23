@@ -48,6 +48,9 @@ git clone https://github.com/openize-com/openize-open-xml-sdk-examples-net.git
 - **ListExamples**: Creating, reading and modifying multilevel lists
 - **TableExamples**: Creating, reading and modifying word tables
 - **ImageExamples**: Creating, reading and modifying word images
+- **ShapeExamples**: Creating, rading and modifying word shapes.
+- **GroupShapeConnectorExamples**: Creating and loading group shapes with auto connector in word documents.
+- **MetadataExamples**: Creating, reading and modifying metadata properties of the word documents.
 
 ### PowerPoint
 Coming soon...

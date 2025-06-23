@@ -1,4 +1,4 @@
-﻿
+
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
@@ -20,5 +20,6 @@
 	<ItemGroup>
 	  <None Remove="SkiaSharp" />
 	  <None Remove="Openize.OpenXML-SDK" />
+	  <None Remove="DocumentFormat.OpenXml" />
 	</ItemGroup>
 </Project>
