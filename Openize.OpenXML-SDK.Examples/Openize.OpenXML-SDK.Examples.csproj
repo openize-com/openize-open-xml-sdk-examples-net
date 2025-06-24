@@ -1,4 +1,4 @@
-
+﻿
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
@@ -10,7 +10,6 @@
 
 	<ItemGroup>
 		<Folder Include="PowerPoint\" />
-		<Folder Include="Word\" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -21,6 +20,5 @@
 	<ItemGroup>
 	  <None Remove="SkiaSharp" />
 	  <None Remove="Openize.OpenXML-SDK" />
-	  <None Remove="DocumentFormat.OpenXml" />
 	</ItemGroup>
 </Project>
