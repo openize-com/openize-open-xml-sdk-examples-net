@@ -66,7 +66,7 @@
         {
             try
             {
-                
+
                 // Initialize a new word document with the default template
                 var doc = new Openize.Words.Document();
                 System.Console.WriteLine("Word Document with default template initialized");
