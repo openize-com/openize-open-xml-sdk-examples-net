@@ -1,4 +1,5 @@
-﻿using Openize.Slides.Examples;
+﻿using Openize.OpenXML_SDK.Examples.PowerPoint;
+using Openize.Slides.Examples;
 using System;
 
 
@@ -21,51 +22,44 @@ namespace Openize.OpenXML_SDK.Examples.Usage
                     case "1":
                         RunSlideExamples();
                         break;
-
                     case "2":
                         RunSlideTextExamples();
                         break;
-
                     case "3":
                         RunSlideImageExamples();
                         break;
-
                     case "4":
                         RunSlideStyledListExamples();
                         break;
-
                     case "5":
                         RunSlideTableExamples();
                         break;
-
                     case "6":
                         RunSlideCommentExamples();
                         break;
-
                     case "7":
                         RunSlideCommentAuthorExamples();
                         break;
-
                     case "8":
                         RunSlideNotesExamples();
                         break;
-
                     case "9":
                         RunSlideRectangleExamples();
                         break;
-
                     case "10":
                         RunSlideCircleExamples();
                         break;
-
+                    case "11":
+                        RunSlideAnimationExamples();
+                        break;
                     case "0":
                         back = true;
                         break;
-
                     default:
                         Console.WriteLine("Invalid choice. Please try again.");
                         break;
                 }
+
 
                 if (!back)
                 {
@@ -89,6 +83,7 @@ namespace Openize.OpenXML_SDK.Examples.Usage
             Console.WriteLine("8. Slide Notes Examples");
             Console.WriteLine("9. Slide Rectangle Examples");
             Console.WriteLine("10. Slide Circle Examples");
+            Console.WriteLine("11. Slide Animation Examples");
             Console.WriteLine("0. Back to Main Menu");
             Console.Write("\nEnter your choice: ");
         }
@@ -117,6 +112,31 @@ namespace Openize.OpenXML_SDK.Examples.Usage
             Console.WriteLine("\n5. AddBackgroundColorToAnExistingSlide...");
             example.AddBackgroundColorToAnExistingSlide(filename: "sample.pptx");
         }
+
+        static void RunSlideAnimationExamples()
+        {
+            Console.Clear();
+            Console.WriteLine("Animation Examples");
+            Console.WriteLine("==================");
+
+            var example = new AnimationExamples();
+
+            Console.WriteLine("\n1. Apply Zoom Animation...");
+            example.ApplyZoomAnimation();
+
+            Console.WriteLine("\n2. Apply FlyIn Animation...");
+            example.ApplyFlyInAnimation();
+
+            Console.WriteLine("\n3. Apply Spin Animation...");
+            example.ApplySpinAnimation();
+
+            Console.WriteLine("\n4. Apply FloatIn Animation...");
+            example.ApplyFloatInAnimation();
+
+            Console.WriteLine("\n5. Apply Bounce Animation...");
+            example.ApplyBounceAnimation();
+        }
+
 
         static void RunSlideTextExamples()
         {
